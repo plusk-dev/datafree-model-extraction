@@ -1,5 +1,4 @@
 import torch
-import ipdb
 import torch.nn as nn
 import torch.optim as optim
 import sys, os, json
@@ -38,7 +37,6 @@ def epoch(args, loader, model, teacher = None, lr_schedule = None, epoch_i = Non
     func = tqdm if stop == False else lambda x:x
     criterion_kl = nn.KLDivLoss(reduction = "batchmean")
     alpha, T = 1.0, args.temp
-    # ipdb.set_trace()
     for batch in func(loader):
         X,y = batch[0].to(args.device), batch[1].to(args.device)
         if args.surrogate == "mnist":

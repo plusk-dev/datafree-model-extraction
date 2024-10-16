@@ -1,7 +1,6 @@
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader, Dataset
 import PIL
-import ipdb
 import torch
 
 class RandDataset(Dataset):
